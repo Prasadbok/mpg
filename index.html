@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mileage</title>
+    <style>
+    body{
+        background-image: url({{url_for('static',filename='builtin/prasad.jpg')}});
+        background-size:80%;
+        background-position:-200px 0px;
+    }
+    div.main{
+    width:400px;
+    margin:100px auto 0px auto;
+    }
+    h3{
+    text-align:center;
+    padding:20px;
+    font-family:sans-serif;
+    }
+    div.sub{
+    background-color:rgba(0,0,0,0.4);
+    width:100%;
+    font-size:18px;
+    border-radius:10px;
+    border:1px soid rgba(255,255,255,0.3);
+    border-shadow:2px 2px 15px
+    rgba(0,0,0,0.3);
+    color:#FFFFFF;
+     margin:40px;
+    }
+    input#dis{
+    margin-left:10px;
+    border-radius:10px;
+    }
+    input#hor{
+    margin-left:18px;
+    border-radius:10px;
+    }
+    input#weight{
+    margin-left:23px;
+    border-radius:10px;
+    }
+    input#acce{
+    margin-left:20px;
+    border-radius:10px;
+    }
+    input#submit{
+    margin-left:120px;
+    border-radius:10px;
+    }
+    </style>
+</head>
+<body><div class="main" >
+    <div class="sub">
+     <h3><lable>Car Mileage prediction</lable></h3>
+    <form name="myfrom" method="post" action="predict" style="margin-left:40px" onsubmit="return validateForm()">
+        displacement(68-455)<input type="number" step= "0.01" name="dis" id="dis"  required/><br><br>
+        horsepower(66-138)<input type="number"  step= "0.01" name="hor" id="hor"  required /><br><br>
+        weight(1613-5140) <input type="number" step= "0.01" name="weight" id="weight"  required/><br><br>
+        acceleration(13-18) <input type="number"  step= "0.01" name="acce" id="acce"  required/><br><br>
+        <input type="submit"  id="submit" name="predict" class="button"  />
+                </form>
+        <h3>mileage(appox):{{output}}</h3>
+
+            </div>
+        </div>
+        <script>
+            function validateForm() {
+  var dis=document.myform.dis.value;
+   if (parseInt(dis)>300){
+     return false;
+    document.alert("prasa");
+    }
+    }
+        </script>
+
+</body>
+</html>
